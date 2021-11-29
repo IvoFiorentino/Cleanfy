@@ -1,0 +1,58 @@
+<html lang="en" class="html-register">
+  <%- include('../partials/head.ejs') %>
+<body class="bodyregister">
+  <% if (locals.errors) { %>
+   <% for( let oneError in errors) {
+    <p><%= errors[oneError].msg %> </p>
+   <% } %>
+  <% } %>
+    <div class="cajaregister">
+        <div class="titulo">
+          <h3>Registration</h3>
+        </div>
+        <form method="POST" action="./login.html" enctype="multipart/form-data">
+           <div class="inputBox">
+              <input type="text" class="input" placeholder="FirstName" name="nombre">
+           </div>  
+          <%/* Agregar error de validacion */%>
+            <div class="inputBox">
+              <input type="text" class="input" placeholder="LastName" name="apellido">
+           </div>
+          <%/* Agregar error de validacion */%> 
+           <div class="inputBox">
+              <input type="password" class="input" placeholder="Password" name="contraseña">
+           </div>
+          <%/* Agregar error de validacion */%>  
+          <div class="inputBox">
+              <input type="password" class="input" placeholder="ConfirmPassword" name="confirmarContraseña">
+           </div>
+          <%/* Agregar error de validacion */%>  
+            <div class="inputBox">
+              <input type="text" class="input" placeholder="EmailAddress" name="email">
+           </div>
+          <%/* Agregar error de validacion */%> 
+           <div>
+             <label><b>Imagen de perfil:</b></label>
+             <input class="inputBox" type="file" name="avatar">
+           </div>
+          <div class="inputBox terms">
+              <label class="check">
+                <input type="checkbox">
+                <span class="checkmark"></span>
+              </label>
+              <p>Agreed to terms and conditions</p>
+           </div> 
+          <div class="todosbotones">
+            <button type="submit">Register</button>
+            <button type="reset">Reset</button>
+            <button type="button">Login</button>
+          </div>
+        </form>
+    </div>	
+</body>
+<main>
+</main>
+<body>
+  
+</body>
+</html>

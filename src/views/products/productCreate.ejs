@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('../partials/headProduct.ejs') %>
+<body>
+  <main>
+    <form action="/products" method="post" enctype="multipart/form-data" class="boxlogin">
+      <h2 class="title">Agregar Producto</h2>
+      <input name="name" type="text" placeholder="Nombre del producto">
+      <input name="description" type="text" placeholder="Descripcion">
+      <input name="image" type="file" placeholder="Imagen">
+      <label for="image" class="form-label">Imagen:</label>
+      <input type="file" name="image" id="image" class="form-input">
+      <input name="categoria" type="text" placeholder="Categoria">
+      <input name="caracteristiucas" type="text" placeholder="Caracteristicas">
+      <input name="price" type="number" placeholder="Precio">
+      <button type="submit">
+        Agregar
+      </button>
+  </main>
+</body>
+</html>
