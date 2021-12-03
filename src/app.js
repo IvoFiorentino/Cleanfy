@@ -20,7 +20,7 @@ app.use(express.static(publicPath));
 app.use(morgan("dev"));
 app.use(methodOverride("_method"));
 app.use(express.urlencoded({ extended: false }));
-app.use(multer());
+// app.use(multer());
 // app.use(express.json());
 // app.use(cookieParser());
 
