@@ -7,7 +7,7 @@ const mainController = {
   index: (req, res) => {
     const ofertas = products.filter((x) => x.categoria === "oferta");
     const ultimas = products.filter((x) => x.categoria === "ultima");
-    res.render("index", { ofertas, ultimas });
+    res.render("index.ejs", { ofertas, ultimas });
   },
 };
 
