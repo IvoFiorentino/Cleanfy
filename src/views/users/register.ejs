@@ -2,7 +2,7 @@
   <%- include('../partials/head.ejs') %>
 <body class="bodyregister">
   <% if (locals.errors) { %>
-   <% for( let oneError in errors) {
+   <% for( let oneError in errors) { %>
     <p><%= errors[oneError].msg %> </p>
    <% } %>
   <% } %>
@@ -10,30 +10,60 @@
         <div class="titulo">
           <h3>Registration</h3>
         </div>
-        <form method="POST" action="./login.html" enctype="multipart/form-data">
+        <form method="POST" action="login.ejs" enctype="multipart/form-data">
            <div class="inputBox">
-              <input type="text" class="input" placeholder="FirstName" name="nombre">
-           </div>  
-          <%/* Agregar error de validacion */%>
+              <input 
+              type="text" 
+              class="input" 
+              placeholder="FirstName" 
+              name="nombre <%= locals.errors && errors.nombre ? 'is-invalid' : null %> "
+              >
+              <% if (locals.errors && errors.nombre) { %>
+
+                <div class="warning">
+                  <%= errors.nombre.msg %>
+                </div>
+              <% } %>  
+           </div>
+           <% } %>
             <div class="inputBox">
-              <input type="text" class="input" placeholder="LastName" name="apellido">
+              <input 
+              type="text" 
+              class="input" 
+              placeholder="LastName" 
+              name="apellido">
            </div>
           <%/* Agregar error de validacion */%> 
            <div class="inputBox">
-              <input type="password" class="input" placeholder="Password" name="contraseña">
+              <input 
+              type="password" 
+              class="input" 
+              placeholder="Password" 
+              name="contraseña">
            </div>
           <%/* Agregar error de validacion */%>  
           <div class="inputBox">
-              <input type="password" class="input" placeholder="ConfirmPassword" name="confirmarContraseña">
+              <input 
+              type="password" 
+              class="input" 
+              placeholder="ConfirmPassword" 
+              name="confirmarContraseña">
            </div>
           <%/* Agregar error de validacion */%>  
             <div class="inputBox">
-              <input type="text" class="input" placeholder="EmailAddress" name="email">
+              <input 
+              type="text" 
+              class="input" 
+              placeholder="EmailAddress" 
+              name="email">
            </div>
           <%/* Agregar error de validacion */%> 
            <div>
              <label><b>Imagen de perfil:</b></label>
-             <input class="inputBox" type="file" name="avatar">
+             <input 
+             class="inputBox" 
+             type="file" 
+             name="avatar">
            </div>
           <div class="inputBox terms">
               <label class="check">

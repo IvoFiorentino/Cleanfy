@@ -52,5 +52,4 @@ router.post('/register',uploadFile.single('avatar'), validaciones, usersControll
 
 router.post('/login', usersController.processLogin);
 
-
 module.exports = router;
