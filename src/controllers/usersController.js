@@ -42,6 +42,11 @@ processLogin: function(req, res) {
 
   req.session.usuarioLogueado = usuarioALoguearse;
   res.render('index.ejs')
+
+    if (req.body.recordame != undefined) {
+      res.cookie('recordame', usuarioALoguearse.email, { maxAge: 60000 })
+  }
+
 },
   
   registerprocess: (req, res) => {

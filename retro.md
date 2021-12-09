@@ -16,3 +16,7 @@ Arrancamos muy rapido, y pudimos avanzar con muchas tareas.
 Tuvimos complicaciones a la hora de ensamblar los temas entre si. No pudimos organizar bien la distribucion de tareas individuales. No organizamos de manera correcta las reuniones. Debemos apostar por un mejor planteo desde el momento 0. 
 
 No encontramos muchos puntos beneficiosos en esta jornada.
+
+### SPRINT 5  
+
+En este sprint fallamos en todos los aspectos: la organizacion, en la distribucion de tareas y compromiso  No hay nada que destacar
