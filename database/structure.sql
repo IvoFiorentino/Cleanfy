@@ -2,8 +2,8 @@ CREATE DATABASE 'CleanfyBD';
 USE CleanfyBD;
 CREATE TABLE `users` (
    `id` INT NOT NULL AUTO_INCREMENT,
-   `firstname` TEXT NOT NULL,
-   `lastname` TEXT NOT NULL,
+   `first_name` TEXT NOT NULL,
+   `last_name` TEXT NOT NULL,
    `email` VARCHAR(255) NOT NULL,
    `category` VARCHAR(255) NOT NULL,
    `image` CHAR NOT NULL,

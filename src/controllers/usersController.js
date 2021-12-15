@@ -7,7 +7,7 @@ const { validationResult } = require('express-validator');
 
 const usersController = {
   register: function(req, res) {
-    return res.render ('./users/register');
+    return res.render('./users/register');
 },
 login: function(req, res) {
     return res.render ('./users/login');
