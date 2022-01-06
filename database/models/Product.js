@@ -1,4 +1,4 @@
-module.exports = (sequelize, dataTypes) => {
+/*module.exports = (sequelize, dataTypes) => {
     let alias = "Product"
     let cols = {
         id:{
@@ -37,4 +37,4 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'user_id'
         })
     }
-}
+}*/

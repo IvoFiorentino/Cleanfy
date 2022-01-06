@@ -2,10 +2,10 @@
   <%- include('../partials/head.ejs') %>
 <body class="bodyregister">
   <% if (locals.errors) { %>
-   <% for( let oneError in errors) { %> 
-    <p><%= errors[oneError].msg %> </p>
+    <% for( let oneError in errors) { %> 
+     <p><%= errors[oneError].msg %> </p>
+    <% } %>
    <% } %>
-  <% } %>
     <div class="cajaregister">
         <div class="titulo">
           <h3>Registration</h3>
@@ -17,35 +17,23 @@
               class="form-control <%= locals.errors && errors.fullName ? is.invalid : null %>"
               placeholder="FirstName" 
               name="nombre"
-              value="<% locals.oldData ? oldData.fullName : null %>"
-              >
-           </div>  
-          <% if (local.errors && errors.fullName) { %>
-            <div class="text-danger">
-              <%= errors.fullName.msg %>
-              <input type="text" class="input"placeholder="LastName" name="apellido"> <% //cambiar la clase y agregar el value %> 
+              value= "<% locals.oldData ? oldData.fullName : null %>">
            </div>
-           <% if (local.errors && errors.apellido) { %>
             <div class="text-danger">
-              <%= errors.apellido.msg %>
+              <input type="text" class="input"placeholder="LastName" name="apellido">  
+           </div>
+            <div class="text-danger">
            <div class="inputBox">
-              <input type="password" class="input" placeholder="Password" name="contraseña"> <% //cambiar la clase y agregar el value %> 
-           </div>
-           <% if (local.errors && errors.contraseña) {%>
+              <input type="password" class="input" placeholder="Password" name="contraseña">
             <div class="text-danger">
-              <%= errors.contraseña.msg %> 
           <div class="inputBox">
-              <input type="password" class="input" placeholder="ConfirmPassword" name="confirmarContraseña"> <% //cambiar la clase y agregar el value %>
+              <input type="password" class="input" placeholder="ConfirmPassword" name="confirmarContraseña"> 
            </div>
-           <% if (local.errors && errors.confirmarContraseña) {%>
             <div class="text-danger">
-              <%= errors.confirmarContraseña.msg %> 
             <div class="inputBox">
-              <input type="text" class="input" placeholder="EmailAddress" name="email"> <% //cambiar la clase y agregar el value %> 
+              <input type="text" class="input" placeholder="EmailAddress" name="email">
            </div>
-           <% if (local.errors && errors.email) { %>
             <div class="text-danger">
-              <%= errors.email.msg %>
            <div>
              <label><b>Imagen de perfil:</b></label>
              <input class="inputBox" type="file" name="avatar">
