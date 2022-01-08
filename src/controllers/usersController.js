@@ -2,13 +2,49 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath  = path.join(__dirname,"../database/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
+const User = require ('../models/User');
 
 const { validationResult } = require('express-validator');
+const bcrypt = require('bcryptjs/dist/bcrypt');
 
 const usersController = {
+  /////////////////////////////////////////////////////////////REGISTER//////////////////////////////////////////////////////////////////
   register: function(req, res) {
     return res.render('./users/register');
 },
+processRegister: (req, res) => {
+  const resultValidation = validationResult(req);
+
+  if (resultValidation.errors.length > 0) {
+    return res.render('userRegisterForm', {
+     errors: resultValidation.mapped(),
+     oldData: req.body
+   }); 
+ }
+
+  let userInDB = User.findByField('email', req.body.email);
+
+  if(userInDB) {
+    return res.render('userRegisterForm', {
+      errors: {
+        email: {
+          msg: 'Este email ya está registrado'
+        }
+      },
+      oldData: req.body
+    });  
+  }
+
+  let userToCreate = {
+    ...req.body,
+    password: bcrypt.hashSync(req.body.password, 10),
+    avatar: req.file.filename
+  }
+ 
+  User.create(req.body);
+},
+///////////////////////////////////////////////////FIN REGISTER/////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////LOGIN////////////////////////////////////////////////////////////////////////////////////////
 login: function(req, res) {
     return res.render ('./users/login');
 },
@@ -48,29 +84,17 @@ processLogin: function(req, res) {
   }
 
 },
-  
-  registerprocess: (req, res) => {
-    let resultValidation = validationResult(req);
-    
-    if (resultValidation.errors.length > 0) {
-      return res.render('register', {
-        errors: resultValidation.mapped()
-      });
-    }
-  },
-  //borrar usuario//
-  // delete: (req, res) => {},////////////////////////////////////////////////
-    store: function (req, res) {
+store: function (req, res) {
 
-        let ids = users.map(p => p.id)
+    let ids = users.map(p => p.id)
 
-        let newUser = {
-            id: Math.max(...ids) + 1,
-            ...req.body,
-        };
-        users.push(newUser)
-        fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
-        res.redirect('/users');
+    let newUser = {
+         id: Math.max(...ids) + 1,
+         ...req.body,
+    };
+    users.push(newUser)
+     fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
+     res.redirect('/users');
 },
 destroy: (req, res) => {
   let users = users.filter(product => product.id != req.params.id);
