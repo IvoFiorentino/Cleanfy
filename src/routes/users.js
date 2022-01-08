@@ -1,7 +1,7 @@
 const express = require('express');
 const multer = require('multer');
 
-const { body } = require('express-validator');
+const {body, validationResult} = require('express-validator');
 
 const path = require('path');
 

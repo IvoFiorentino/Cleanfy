@@ -1,61 +1,40 @@
 <html lang="en" class="html-register">
   <%- include('../partials/head.ejs') %>
 <body class="bodyregister">
-  <% if (locals.errors) { %>
-    <% for( let oneError in errors) { %> 
-     <p><%= errors[oneError].msg %> </p>
-    <% } %>
-   <% } %>
-    <div class="cajaregister">
-        <div class="titulo">
-          <h3>Registration</h3>
-        </div>
-        <form method="POST" action="/users/register" enctype="multipart/form-data">
-           <div class="inputBox">
-              <input 
-              type="text" 
-              class="form-control <%= locals.errors && errors.fullName ? is.invalid : null %>"
-              placeholder="FirstName" 
-              name="nombre"
-              value= "<% locals.oldData ? oldData.fullName : null %>">
-           </div>
-            <div class="text-danger">
-              <input type="text" class="input"placeholder="LastName" name="apellido">  
-           </div>
-            <div class="text-danger">
-           <div class="inputBox">
-              <input type="password" class="input" placeholder="Password" name="contraseña">
-            <div class="text-danger">
-          <div class="inputBox">
-              <input type="password" class="input" placeholder="ConfirmPassword" name="confirmarContraseña"> 
-           </div>
-            <div class="text-danger">
-            <div class="inputBox">
-              <input type="text" class="input" placeholder="EmailAddress" name="email">
-           </div>
-            <div class="text-danger">
-           <div>
-             <label><b>Imagen de perfil:</b></label>
-             <input class="inputBox" type="file" name="avatar">
-           </div>
-          <div class="inputBox terms">
-              <label class="check">
-                <input type="checkbox">
-                <span class="checkmark"></span>
-              </label>
-              <p>Agreed to terms and conditions</p>
-           </div> 
-          <div class="todosbotones">
-            <button type="submit">Register</button>
-            <button type="reset">Reset</button>
-            <button type="button">Login</button>
-          </div>
-        </form>
-    </div>    
-</body>
-<main>
-</main>
-<body>
-  
+  <div class="cajaregister">
+    <div class="titulo">
+      Registration
+    </div>
+    <div class="formulario">
+       <div class="inputBox">
+          <input type="text" class="input" placeholder="First Name">
+       </div>  
+        <div class="inputBox">
+          <input type="text" class="input" placeholder="Last Name">
+       </div>  
+       <div class="inputBox">
+          <input type="password" class="input" placeholder="Password">
+       </div>  
+      <div class="inputBox">
+          <input type="password" class="input" placeholder="Confirm Password">
+       </div> 
+        <div class="inputBox">
+          <input type="text" class="input" placeholder="Email Address">
+       </div> 
+
+      <div class="inputBox terms">
+          <label class="check">
+            <input type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+          <p>Agreed to terms and conditions</p>
+       </div> 
+      <div class="todosbotones">
+        <button type="submit">Register</button>
+        <button type="reset">Reset</button>
+        <button type="button">Login</button>
+        <form action="./login.html"></form>
+    </div>
+</div>	
 </body>
 </html>
