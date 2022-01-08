@@ -1,5 +1,7 @@
 const express = require('express');
 const multer = require('multer');
+const router = express.Router();
+const app = express();
 
 const {body, validationResult} = require('express-validator');
 
@@ -40,7 +42,29 @@ const validaciones = [
     })
 ]
 
-const router = express.Router();
+app.post('/register', [
+    body('nya', 'Ingrese un nombre y apellido completo')
+        .exists()
+        .isLength({min:5}),
+    body('email', 'Ingrese un E-mail válido')
+        .exists()
+        .isEmail(),
+    body('edad', 'Ingrese un valor numérico')        
+        .exists()
+        .isNumeric()
+], (req, res)=>{ 
+    const errors = validationResult(req)
+    if (!errors.isEmpty()) {
+        console.log(req.body)
+        const valores = req.body
+        const validaciones = errors.array()
+        res.render('index', {validaciones:validaciones, valores: valores})
+    }else{
+        res.send('¡Validación Exitosa!')
+    };
+});
+
+
 
 //RUTAS///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
