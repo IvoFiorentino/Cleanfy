@@ -19,7 +19,7 @@ app.set("views", path.join(__dirname,"/views"));
 app.use(express.static(publicPath));
 app.use(morgan("dev"));
 app.use(methodOverride("_method"));
-app.use(express.urlencoded({ extended: false }));
+app.use(express.urlencoded({extended: true}));
 // app.use(multer());
 app.use(express.json());
 app.use(cookieParser());
