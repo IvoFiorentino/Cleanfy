@@ -28,6 +28,7 @@ app.use(cookieParser());
 const mainRoute = require("./routes/main");
 const usersRoute = require("./routes/users");
 const productsRoute = require("./routes/products");
+const User = require("../models/User")
 
 app.use("/", mainRoute);
 app.use("/users", usersRoute);

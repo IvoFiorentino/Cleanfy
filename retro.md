@@ -20,3 +20,7 @@ No encontramos muchos puntos beneficiosos en esta jornada.
 ### SPRINT 5  
 
 En este sprint fallamos en todos los aspectos: la organizacion, en la distribucion de tareas y compromiso  No hay nada que destacar
+
+### SPRINT 6
+
+Tuvimos complicaciones a la hora de juntarnos debido a no coincidir con los horarios, siendo pocos los que trabajamos en el sprint, esperemos lograr un buen resultado.
