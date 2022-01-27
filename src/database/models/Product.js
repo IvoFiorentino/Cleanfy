@@ -11,11 +11,11 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         price:{
-            type: dataTypes.FLOAT,
+            type: dataTypes.INTEGER,
             allowNull: false,
         },
         discount:{
-            type: dataTypes.INTEGER,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         image:{
@@ -32,7 +32,7 @@ module.exports = (sequelize, dataTypes) => {
     Product.associate = models => {
         Product.belongsToMany(models.User, {
             as: 'users', 
-            foreignKey: 'product_id',
+            foreignKey: 'user_id',
             through: 'products_users',
             otherKey: 'user_id'
         })

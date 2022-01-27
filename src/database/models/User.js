@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "User"
+    let alias = "user"
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -36,7 +36,7 @@ module.exports = (sequelize, dataTypes) => {
     User.associate = models => {
         User.belongsToMany(models.Product, {
             as: 'products', 
-            foreignKey: 'user_id',
+            foreignKey: 'product_id',
             through: 'products_users',
             otherKey: 'product_id'
         })
