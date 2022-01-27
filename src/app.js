@@ -32,11 +32,11 @@ const apiProductsRoute = require("./routes/api/apiProducts.js")
 const apiUsersRoute = require("./routes/api/apiUsers")
 //const User = require("../models/User")
 
+app.use("/", mainRoute);
 app.use("/users", usersRoute);
 app.use("/products", productsRoute);
-app.use("/", mainRoute);
 
 app.use("/api/products", apiProductsRoute);
-//app.use("/api/users", apiUsersRoute);
+app.use("/api/users", apiUsersRoute);
 
 app.listen(process.env.PORT || PORT, () => console.log("server up at: http://localhost:3000/"));

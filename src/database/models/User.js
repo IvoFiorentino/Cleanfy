@@ -1,5 +1,5 @@
 module.exports = (sequelize, dataTypes) => {
-    let alias = "user"
+    let alias = "User"
     let cols = {
         id:{
             type: dataTypes.INTEGER,
@@ -31,7 +31,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
     }
-    let config = {tableName: 'user', timestamps: false}
+    let config = {tableName: 'users', timestamps: false}
     const User = sequelize.define(alias, cols, config);
     User.associate = models => {
         User.belongsToMany(models.Product, {

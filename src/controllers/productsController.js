@@ -11,13 +11,10 @@ const productsController = {
     db.Product.findAll()
     .then((productos) => {
       res.send(productos)
+      res.render("./products/productList", {product: producto})
     }).catch((err) => {
       res.send("error")
     });
-  },
-  // List View //
-  index: (req, res) => {
-    res.render("./products/productList", { products });
   },
   // Create View //
   create: (req, res) => {
