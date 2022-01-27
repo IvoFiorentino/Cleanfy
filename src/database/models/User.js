@@ -18,7 +18,7 @@ module.exports = (sequelize, dataTypes) => {
             type: dataTypes.EMAIL,
             allowNull: false,
         },
-        category:{ /*USER*/
+        category:{
             type: dataTypes.TEXT,
             allowNull: false,
         },
