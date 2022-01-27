@@ -1,13 +1,21 @@
 const path = require("path");
 const fs = require("fs");
-//const db = require("../../database/models");
-//const sequelize = db.sequelize;
-//const {Op} = require("sequelize");
+const db = require("../database/models");
+const sequelize = db.sequelize;
+const {Op} = require("sequelize");
 //const productsFilePath = path.join(__dirname, "../database/products.json");
 //const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const productsController = {
-  // List View //
+  index : (req, res) =>{
+    db.Product.findAll()
+    .then((productos) => {
+      res.send(productos)
+    }).catch((err) => {
+      res.send("error")
+    });
+  }
+  /*// List View //
   index: (req, res) => {
     res.render("./products/productList", { products });
   },
@@ -79,7 +87,7 @@ const productsController = {
 		let products = products.filter(product => product.id != req.params.id);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/');
-  }
+  }*/
 };
 
-module.exports = productsController;
+module.exports = productsController; 

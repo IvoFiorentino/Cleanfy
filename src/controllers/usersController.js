@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const usersFilePath  = path.join(__dirname,"../database/users.json");
 const users = JSON.parse(fs.readFileSync(usersFilePath, "utf-8"));
-const User = require ('../models/User');
+const User = require ('../../models/User');
 
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs/dist/bcrypt');
@@ -95,8 +95,7 @@ store: function (req, res) {
     users.push(newUser)
      fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
      res.redirect('/users');
-},
-destroy: (req, res) => {
+},destroy: (req, res) => {
   let users = users.filter(product => product.id != req.params.id);
   fs.writeFileSync(usersFilePath, JSON.stringify(users, null, ' '));
   res.redirect('/');

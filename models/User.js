@@ -1,7 +1,5 @@
-// 4. Editar la información de un usuario
 
-
-const fs = require('fs');
+/*const fs = require('fs');
 
 const User = {
    fileName: './src/database/users.json',
@@ -54,4 +52,4 @@ const User = {
    }
 }
 
-module.exports = User;
+module.exports = User;*/

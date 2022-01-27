@@ -72,8 +72,10 @@ router.get('/login', usersController.login);
 
 router.get('/register', usersController.register);
 
-router.post('/register',uploadFile.single('avatar'), validaciones, usersController.registerprocess);
+//router.post('/register',uploadFile.single('avatar'), validaciones, usersController.registerprocess);
 
 router.post('/login', usersController.processLogin);
+
+router.post('/register',uploadFile.single('avatar'), validaciones, usersController.processRegister);
 
 module.exports = router;
