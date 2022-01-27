@@ -14,8 +14,8 @@ const productsController = {
     }).catch((err) => {
       res.send("error")
     });
-  }
-  /*// List View //
+  },
+  // List View //
   index: (req, res) => {
     res.render("./products/productList", { products });
   },
@@ -87,7 +87,7 @@ const productsController = {
 		let products = products.filter(product => product.id != req.params.id);
 		fs.writeFileSync(productsFilePath, JSON.stringify(products, null, ' '));
 		res.redirect('/');
-  }*/
+  }
 };
 
 module.exports = productsController; 

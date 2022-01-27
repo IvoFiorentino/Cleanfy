@@ -15,7 +15,7 @@ module.exports = (sequelize, dataTypes) => {
             allowNull: false,
         },
         email:{
-            type: dataTypes.EMAIL,
+            type: dataTypes.STRING,
             allowNull: false,
         },
         category:{
@@ -41,4 +41,5 @@ module.exports = (sequelize, dataTypes) => {
             otherKey: 'product_id'
         })
     }
+    return User;
 }

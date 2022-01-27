@@ -25,8 +25,8 @@ app.use(express.json());
 app.use(cookieParser());
 
 // Route System //
-// const mainRoute = require("./routes/main");
-// const usersRoute = require("./routes/users");
+const mainRoute = require("./routes/main");
+const usersRoute = require("./routes/users");
 const productsRoute = require("./routes/products");
 const apiProductsRoute = require("./routes/api/apiProducts.js")
 const apiUsersRoute = require("./routes/api/apiUsers")
