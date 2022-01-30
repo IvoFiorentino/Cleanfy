@@ -6,15 +6,19 @@ const Op = db.Sequelize.Op;
 // const products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8"));
 
 const mainController = {
+//   index : (req, res) =>{
+//     db.Product.findAll()
+//     .then((productos) => {
+//       res.send(productos)
+//       res.render("./index", {product: productos})
+//     }).catch((err) => {
+//       res.send("error")
+//     });
+// }
+
   index : (req, res) =>{
-    db.Product.findAll()
-    .then((productos) => {
-      res.send(productos)
-      res.render("./productList", {product: productos})
-    }).catch((err) => {
-      res.send("error")
-    });
-}
+    res.render("./index")
+  }
 }
 
 module.exports = mainController;

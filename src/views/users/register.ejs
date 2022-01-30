@@ -7,8 +7,12 @@
     </div>
     <form action="/registrar" method="POST">
       <div class="inputBox">
-        <label for="nya" class="form-label">Nombre completo</label>
-        <input id="nya" name="nya" type="text" class="form-control" value="<% if(typeof valores != 'undefined') { %><%= valores.nya %><%}%>">              
+        <label for="nombre" class="form-label">Nombre </label>
+        <input id="firstname" name="nombre" type="text" class="form-control" value="<% if(typeof valores != 'undefined') { %><%= valores.firstname %><%}%>">              
+      </div>
+      <div class="inputBox">
+        <label for="apellido" class="form-label">Apellido </label>
+        <input id="lastname" name="apellido" type="text" class="form-control" value="<% if(typeof valores != 'undefined') { %><%= valores.lastname %><%}%>">              
       </div>
       <div class="inputBox">
         <label for="email" class="form-label">E-mail</label>
