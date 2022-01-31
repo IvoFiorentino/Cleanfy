@@ -1,40 +1,35 @@
-const express = require("express");
+const express = require('express');
+const router = express.Router();
 const path = require('path');
 const multer = require('multer');
-const router = express.Router();
-const productsController = require("../controllers/productsController");
-
-// Multer //
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './public/img/products');
-  },
-  filename: function (req, file, cb) {
-    cb(null, `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`);
-  }
+const multerDiskStorage = multer.diskStorage({
+    destination: (req,file,callback) => {
+        let folder = path.join(__dirname,'../../public/img/products');
+        callback(null, folder);
+    },
+    filename: (req,file,callback) => {
+        let imageName = Date.now() + path.extname(file.originalname);
+        callback(null, imageName);
+    }
 })
-var upload = multer({ storage: storage })
+const upload = multer({ storage: multerDiskStorage});
+const productsController = require ("../controllers/productsController");
 
-// Route System //
-// 1. Listado de productos - /products (GET)
-router.get("/", productsController.index);
+//router.get('/productDetail', productsController.productDetail);
 
-// 2. Formulario de creación de productos - /products/create (GET)
-router.get("/create", productsController.create);
+router.get('/productCart', productsController.productCart);
 
-// // 4. Acción de creación (a donde se envía el formulario) - /products (POST)
-router.post("/", upload.single('image'), productsController.store);
+router.get('/', productsController.products);
 
-// // 3. Detalle de un producto particular -  /products/:id (GET)
-router.get("/:id", productsController.detail);
+router.get('/productCreate', productsController.productCreate);
+router.post('/create',upload.single('image'), productsController.newProduct);
 
-// // 5. Formulario de edición de productos - /products/:id/edit (GET)
-router.get("/:id/edit", productsController.edit);
+router.get('/productDetail/:id', productsController.productName);
 
-// // 6. Acción de edición (a donde se envía el formulario) - /products/:id (PUT)
-router.put('/:id', upload.single('image'), productsController.update);
+router.get('/:id/edit', productsController.editProduct);
 
-// // 7. Acción de borrado - /products/:id (DELETE)
-router.delete('/:id', productsController.destroy);
+router.put('/:id/edit', upload.single('image'), productsController.updateProduct);
+router.delete('/:id/edit', productsController.deleteProduct);
 
 module.exports = router;
+

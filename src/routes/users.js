@@ -9,7 +9,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../public/img/avatar'); //Vincular imagen de avatar//
+        cb(null, '../public/img/users'); //Vincular imagen de avatar al usuario//
     },
     filename: (req, file, cb) => {
         let filename = `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`;
@@ -76,6 +76,6 @@ router.get('/register', usersController.register);
 
 router.post('/login', usersController.processLogin);
 
-router.post('/register',uploadFile.single('avatar'), validaciones, usersController.processRegister);
+router.post('/register', validaciones, uploadFile.single('avatar'), usersController.processRegister);
 
 module.exports = router;
