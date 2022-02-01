@@ -4,8 +4,8 @@
   <body>
     <%- include('./partials/header.ejs') %>
     <main class="main">
+      <h3 class="titulo">Todos los productos</h3>
       <section class="section-html">
-        <h3 class="encuadro">Todos los productos</h3>
         <% products.forEach(producto => { %> .
         <div class="ver">
           <img class="imagenProducto" src="/img/products/<%= producto.image %> "alt="alt"/>

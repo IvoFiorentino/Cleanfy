@@ -9,7 +9,7 @@
         <!-- HACER UN FOR PARA CADA CARD -->
 
         <% productos.forEach(producto => { %>
-          <a href="/products/<%=producto.id%>/edit">
+          <a href="products/productDetail/<%= producto.id %>">
         <div class="ver">
           <img
             class="imagenproducto"
