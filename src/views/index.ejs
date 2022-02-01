@@ -4,15 +4,15 @@
   <body>
     <%- include('./partials/header.ejs') %>
     <main class="main">
-      <section class="section-html">
-        <h3 class="encuadro">Basado en tu ultima visita o nuevos productos</h3>
+      <h3 class="titulo">Basado en tu ultima visita o nuevos productos</h3>
+      <section class="section">
         <!-- HACER UN FOR PARA CADA CARD -->
 
         <% productos.forEach(producto => { %>
           <a href="/products/<%=producto.id%>/edit">
         <div class="ver">
           <img
-            class="imagenProducto"
+            class="imagenproducto"
             src="img/products/<%= producto.image %> "
             alt="alt"
           />
@@ -28,5 +28,6 @@
         <% }) %>
       </section>
     </main>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
