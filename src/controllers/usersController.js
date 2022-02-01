@@ -36,7 +36,7 @@ const usersController = {
       }else{
         // Usuario OK para loguear
         delete userInDB.password;
-        req.session.user = userInDB[0].dataValues;
+        req.session.user = userInDB[1].dataValues;
         if(req.body.rememberme){
             res.cookie('rememberme', req.body.email, {maxAge: (1000 * 60) * 60})
         }
@@ -55,7 +55,7 @@ register: (req, res) => res.render("register"),
 
   //Crea nuevo usuario//
   processRegister: function (req, res) {
-     let userInDB = db.User.findOne({
+     db.User.findOne({
         where: {
           email: req.body.email,
         },
@@ -70,25 +70,26 @@ register: (req, res) => res.render("register"),
             },
           });
         }
-      })
-      .catch((error) => console.log(error));
-
-      db.User.create( 
+      
+      else{
+        db.User.create( 
           {
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
+            firstname: req.body.first_name,
+            lastname: req.body.last_name,
             email: req.body.email,
             image:req.file?req.file.filename:'userdefault.png',
             password: bcrypt.hashSync(req.body.password, 10),
-            users_category: 2,
+            category: "client",
 
           })
 
           .then(function () {
-            res.render("/");
+            res.render("login");
           })
-          .catch((error) => console.log(error));
-      },
+      }
+    })
+      .catch((error) => console.log(error))
+  },
 
   //Muestra un  usuario para editarlo//
   editUsers: function (req, res) {
@@ -111,8 +112,8 @@ register: (req, res) => res.render("register"),
     } else {
       db.User.update(
         {
-          first_name: req.body.first_name,
-          last_name: req.body.last_name,
+          firstname: req.body.first_name,
+          lastname: req.body.last_name,
           email: req.body.email,
           image:req.file?req.file.filename:'default.png',
           password: req.session.password,

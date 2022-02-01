@@ -9,7 +9,7 @@ const path = require('path');
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        cb(null, '../public/img/users'); //Vincular imagen de avatar al usuario//
+        cb(null, './public/img/users'); //Vincular imagen de avatar al usuario//
     },
     filename: (req, file, cb) => {
         let filename = `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`;

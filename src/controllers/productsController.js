@@ -11,7 +11,7 @@ const productsController = {
 
   products: (req, res) => {
     db.Product.findAll().then(function (products) {
-      res.render("products", { products: products });
+      res.render("productList", { products: products });
     });
   },
   //  res.render('products', {products: products}),
@@ -56,14 +56,10 @@ const productsController = {
 
   editProduct: (req, res) => {
     let productId = req.params.id;
-    let promProduct = db.Product.findByPk(productId, {
-      include: ["product_categories"],
-    });
-    let promProduct_category = db.Product.findAll();
-    Promise.all([promProduct, promProduct_category])
-      .then(([Product, allProduct_category]) => {
-        return res.render("editProduct", { Product, allProduct_category });
-      })
+    db.Product.findByPk(productId)
+    .then(product =>{
+      res.render("productUpdate", {product})
+    })
       .catch((error) => res.send(error));
   },
 
@@ -82,16 +78,20 @@ const productsController = {
       }
     )
       .then(() => {
-        return res.redirect("/products");
+        return res.redirect("/");
       })
       .catch((error) => res.send(error));
   },
 
   deleteProduct: function (req, res) {
     let productId = req.params.id;
-    db.Product.destroy({ where: { id: productId }, force: true }) // force: true es para asegurar que se ejecute la acción
+    db.Product.destroy(
+      { 
+        where: { id: productId },
+       force: true 
+      }) // force: true es para asegurar que se ejecute la acción
       .then(() => {
-        return res.redirect("/products");
+        return res.redirect("/");
       })
       .catch((error) => res.send(error));
   },

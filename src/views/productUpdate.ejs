@@ -3,7 +3,7 @@
   <%- include('./partials/headProduct.ejs') %>
 <body>
   <main>
-    <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+    <form action="/products/<%= product.id %>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
       <h2 class="title">Actualizar Producto</h2>
       <label for="name" class="">Nombre del producto:</label>
       <input type="text" id="name" name="name" placeholder="Editar nombre del producto" class="form-input" value="<%= product.name %>">
@@ -16,9 +16,10 @@
       <label for="categoria" class="">Categoria del producto:</label>
       <input type="text" id="category" name="category" placeholder="Editar categoria del producto" class="form-input" value="<%= product.categoria %>">
       <button type="submit">Acutalizar</button>
+      </form>
   </main>
-  <form action="/products/delete/<% product.id %>?_method=DELETE" method="">
-    <button type="submit">Borrar producto</button>
+  <form action="/products/<%= product.id %>/delete?_method=DELETE" method="POST" enctype="multipart/form-data">
+    <button type="submit" >Borrar producto</button>
   </form>
 </body>
 </html>
