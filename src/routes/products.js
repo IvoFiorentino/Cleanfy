@@ -29,7 +29,7 @@ router.get('/productDetail/:id', productsController.productName);
 router.get('/:id/edit', productsController.editProduct);
 
 router.put('/:id/edit', upload.single('image'), productsController.updateProduct);
-router.delete('/:id/edit', productsController.deleteProduct);
+router.delete('/:id/delete', productsController.deleteProduct);
 
 module.exports = router;
 

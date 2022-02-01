@@ -381,7 +381,7 @@ body {
     font-size: 27px;
 }
 
-.cajaregister .formulario .inputbox .input{
+.cajaregister .inputbox .input{
 width: 100%;
 outline: none;
 border: 1px solid #d5dbd9;
@@ -392,7 +392,7 @@ transition: all 0.3s ease;
 }
 
 
-.bodyregister .cajaregister .formulario .inputbox,
+.bodyregister .cajaregister .inputbox,
 .todosbotones{
 border: 0;
 background: none;
@@ -407,6 +407,10 @@ color: black;
 border-radius: 22px;
 transition: 360ms;
 font-size: 16;
+}
+
+.formulario{
+  margin-top: 150px;
 }
 
 .select-register{
