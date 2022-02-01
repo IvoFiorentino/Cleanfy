@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %>
+    <body>
+        <!-- header -->
+        <%- include('./partials/header.ejs') %> 
+        <!-- main -->
+        <main class="carrito-main">
+            <!-- <% if(locals.carrito && products.length >0) { %>
+                 <div class="busqueda-productos" >
+                <label for="contador">Cantidad de SKUs: </label>
+                <div name="contador" id="contador"><%= products.length %></div>
+            </div>
+            <%}%> -->
+            
+            
+            <% if(locals.carrito && products.length >0) { %>
+                <div class="carrito75">
+                    <div>
+                        <h2 class="busqueda-productos-titulo">Resumen del carrito</h2>
+                      </div>
+            <% products.forEach(function(product,i) { %>
+                <% let finalPrice = product.price %>
+                   
+                <div>
+                  <section class="busqueda-productos productoCarrito<%=i%>">
+                         <a >
+                             <figure>
+                                 <img src="/images/products/<%= product.image %>" alt="<%= product.image %>">
+                             </figure>
+                         </a>
+                         <div class="ficha-carrito-prod">
+                             <article>
+                                 <h2>$<%= toThousand(finalPrice) %> </h2>
+                                <p><%= product.product_name %></p>
+                            </article>
+                            <form action="/products/carrito/<%=product.id%>" method="POST">
+                                <button type="submit" ><i class="fas fa-trash-alt"></i></button>
+                            </form>
+                        </div>
+                  </section>
+                </div>
+                <% }) %> 
+            </div>
+                <section class="carrito-resumen">
+                 <div class="carrito-caja">
+               
+                        <% 
+                        this.sum = 0  
+                        %>
+                        <% products.forEach(function(product,i) { %>
+                            <% let finalPrice = product.price %>
+                            <% 
+                            this.sum += Number(product.price) %>
+                            <div class="carrito-a1">
+                                <p><%= product.product_name %> <em >(1u)</em></p><p><strong>$<%= toThousand(finalPrice) %></strong></p>
+                             </div>
+                        <% }) %>
+                            <div class="carrito-a3">
+                                 <p>Envio</p><p><strong>$500</strong></p>
+                            </div>
+                            <div class="carrito-a4">
+                                 <p><strong>Total</strong></p><p><strong>$<%= toThousand(this.sum +500) %>  </strong></p>
+                            </div>
+                            <div class="carrito-boton">
+                                 Finalizar Compra
+                            </div>
+                        <% } else { %>
+                            
+                            <div class= "carrito-vacio">
+                                No tienes productos en tu carrito.
+                                <i class="fas fa-shopping-cart"></i>
+                            </div>
+                        <% } %>
+                    </div> 
+        </section>
+    </main> 
+    <%- include('./partials/footer.ejs') %>
+</body>
+</html>

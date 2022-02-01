@@ -98,10 +98,6 @@
     margin: 2%;
   }
 
-  .descriptionContainer h3 {
-
-  }
-
   .questionContainer {
     text-align: left;
     /* border: red solid; */
@@ -120,14 +116,6 @@
 
   .questionContainer h4 {
     margin-top: 2%;
-  }
-
-  .descriptionContainer p {
-
-  }
-
-  .question {
-
   }
 
   .reply {
