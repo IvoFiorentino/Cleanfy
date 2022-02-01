@@ -5,12 +5,18 @@
     font-family: 'Handlee', cursive;
 }
 
+.main{
+  padding-top: 5rem;
+  height: 100%;
+}
+
 section {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
 }
+
 header img { 
     margin-top: 2px;
     margin-left: 2px;
@@ -107,9 +113,9 @@ body {
 
 
 /*<----------------------------------------FOOTER--------------------------------------->*/
-/* .footer {
+.footer {
   display: none;
-} */
+}
 
 .footer-mobile {
   background-color: #83b7ff;
@@ -117,7 +123,8 @@ body {
   height: 60px;
   justify-content: space-around;
   align-items: center;
-}
+  margin-bottom: 0;
+} 
 
 .footer-mobile h3 {
   font-size: 22px;
@@ -128,14 +135,14 @@ body {
   font-size: 22px;
 }
 
-/* #4A91F7 */
+/* <----------------------FIN FOOTER---------------------->*/
 .ver{
-    width: 350px;
-    padding: 5px;
+    padding: 10px;
     background-color: white;
     text-align: center;
-    margin: 10px;
     border: 1px solid #000000;
+    margin: 10px;
+    height: 0 auto;
 }
 
 .pdp{
@@ -144,10 +151,10 @@ body {
     margin-bottom: 2px;
 }
 
-.section-html{
+/* .section-html{
     display: flex;
     justify-content: center;
-}
+} */
 
 @media (min-width: 361px) {
   .descripcion {
@@ -197,6 +204,63 @@ body {
     .main{
       padding-top: 5rem;
     }
+
+    /*<-------------------CARRITO MEDIA---------------------------------->*/
+    .carrito-productos-carro {
+      display:flex;
+      justify-content: space-between ;
+      width: 100%;
+      border: 2px solid gray;
+     
+      border-radius: 5px;
+      padding-left: 5px;
+      padding-right: 10px;
+      background-color: black;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      color: white;
+      
+    }
+    
+    .carrito-productos-carro img{
+      width: 20%;
+      padding: 5px;
+    }
+    .carrito-productos-carro h3 {
+      font-size: 5vw;
+    }
+    .carrito-productos-carro h6 {
+      font-size: 3vw;
+    }
+    .carrito-productos-carro h4 {
+      font-size: 4vw;
+    }
+    
+    div.carrito-detalle {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 70%; 
+    }
+    .carrito-prods {
+      
+      /*border: 1px solid gray;*/
+      padding-top: 30px;
+      padding-bottom: 30px;
+      padding-right: 5px;
+      padding-left: 5px;
+      /* width: 50%;*/
+    }
+    
+    .carrito-num {
+      background-color: white;
+      border: 1px solid gray;
+      border-radius: 5px;
+      margin-left: 5px;
+      margin-right: 5px;
+      color: #000000;
+    }
+    
 }
   /* footer */
   .footer-mobile {
@@ -208,8 +272,9 @@ body {
     background-color: #4A91F7;
     justify-content: space-around;
     align-items: center;
-    font-size: 1.4vw;
+    font-size: 1vw;
     color: white;
+    margin-bottom: 0px;
   }
   .footer div ul li a{
     color: white;
@@ -261,10 +326,11 @@ body {
 /* SINGIN */
 
 .boxlogin{
-    width: 300px;
+    display: flex;
+    flex-direction: column;
     padding: 40px;
     background-color: #4A91F7;
-    text-align: center;
+    align-items: center;
     border-radius: 18%;
     border: 1px rgb(100, 224, 255);
     box-shadow: 0px 0px 10px rgb(100, 100, 100);
@@ -396,6 +462,8 @@ body {
 
 .titulo{
     font-size: 27px;
+    align-items: center;
+    text-align: center;
 }
 
 .cajaregister .formulario .inputbox .input{
@@ -780,5 +848,271 @@ div.carrito-a1 p, div.carrito-a2 p, div.carrito-a3 p, div.carrito-a4 p {
   font-size: 120px;
 }
 
+/* PRODUCT DETAIL */
+.productDetailBody {
+  /* background-color: black; */
+  width: 100vw;
+  height: 100vh;
+}
 
+.mainProductDetail {
+  padding: 80px 0px 0px 0px;
+  text-align: center;
+  width: 100vw;
+  height: 80vw;
+  /* background-color: yellow; */
+}
+
+.productTittleContainer {
+  text-align: left;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 2%;
+}
+
+.productTittle{
+  align-items: center;
+  text-align: left;
+  font-size: 3vh;
+}
+
+.productPictureContainer {
+  text-align: center;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 2%;
+  background-color: white;
+  height: 20vh;
+}
+
+.productPicture {
+  padding: 5%;
+  border-image: 5%;
+}
+
+.productPriceContainer {
+  text-align: left;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 2%;
+}
+
+.productPrice {
+  text-align: left;
+  font-size: 4vh;
+  display: block;
+}
+
+.productCuota {
+  text-align: left;
+  font-size: 2vh;
+  display: block;
+}
+
+.productPaymentMethodContainer {
+  text-align: left;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 1% 2%;
+}
+
+.buttomContainer{
+  /* border: red solid; */
+  margin: 2%;
+}
+
+.buttomContainer button {
+  text-align: center;
+  display: block;
+  margin-top: 1%;
+  width: 100%;
+  font-size: 2vh;
+  font-family: 'Handlee', cursive;
+  font-weight: 900;
+}
+
+.buyButton {
+  background-color: #3483fa;
+  color: white;
+}
+
+.addButton {
+  background-color: rgba(65,137,230,.15);
+  color: #3483fa;
+}
+
+.descriptionContainer {
+  text-align: left;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 2%;
+}
+
+.questionContainer {
+  text-align: left;
+  /* border: red solid; */
+  padding: 2%;
+  margin: 2%;
+}
+
+.questionContainer h3 {
+  margin-top: 1%;
+}
+
+.questionContainer input{
+  width: 100%;
+  margin-top: 1%;
+}
+
+.questionContainer h4 {
+  margin-top: 2%;
+}
+
+.reply {
+  color: grey;
+}
+
+/* PRODUCT CREATION */
+.productCreate{
+width: 300px;
+padding: 40px;
+background-color: #4A91F7;
+text-align: center;
+border-radius: 18%;
+border: 1px rgb(100, 224, 255);
+box-shadow: 0px 0px 10px rgb(100, 100, 100);
+}
+
+/* PRODUCT CART */
+.productListContainer {
+background-color: white;
+text-align: left;
+/* border: red solid; */
+padding: 2%;
+margin: 2%;
+}
+
+.productListContainer p{
+/* background-color: red; */
+margin: 1%;
+width: 50%;
+}
+
+.productListContainer input {
+/* background-color: red; */
+margin: 1%;
+border: blue;
+width: 50%;
+}
+
+.buttomContainerCart{
+background-color: white;
+/* border: red solid; */
+margin: 2%;
+padding: 2%;
+}
+
+.buttomContainerCart button {
+text-align: center;
+display: block;
+margin-top: 1%;
+width: 100%;
+font-size: 4vh;
+font-family: 'Handlee', cursive;
+font-weight: 900;
+height: 10vh;
+}
+
+.buttomContainerCartEnvio{
+text-align: left;
+width: 100%;
+/* background-color: red; */
+}
+
+.buttomContainerCartPrecio{
+text-align: right;
+width: 100%;
+/* background-color: red; */
+}
+
+.bodyregister{
+margin: 0;
+padding: 0;
+background-color: #f0f0f0;
+
+display: flex;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center; 
+}
+
+.cajaregister{
+width: 410px;
+padding: 40px;
+background-color: #4A91F7;
+text-align: center;
+border-radius: 18%;
+border: 1px rgb(100, 224, 255);
+}
+
+.titulo{
+font-size: 27px;
+}
+
+.cajaregister .formulario .inputbox .input{
+width: 100%;
+outline: none;
+border: 1px solid #d5dbd9;
+font-size: 15px;
+padding: 8px 10px;
+border-radius: 22px;
+transition: all 0.3s ease;
+}
+
+
+.bodyregister .cajaregister .formulario .inputbox,
+.botones{
+border: 0;
+background: none;
+display: flex;
+margin: 20px auto;
+padding: 5px 3px;
+text-align: center;
+border: 2px solid rgb(107, 190, 245);
+width: 253px;
+outline: none;
+color: black;
+border-radius: 22px;
+transition: 360ms;
+font-family: 'arial', cursive;
+font-size: 16;
+}
+
+.bodyregister .cajaregister .formulario .botones button[type="submit"],
+.bodyregister .cajaregister .formulario .botones button[type="reset"],
+.bodyregister .cajaregister .formulario .botones button[type="button"]{
+border: 0;
+background: rgb(107, 190, 245);
+cursor: pointer;
+}
+
+.botones button[type="submit"]:hover,
+.botones button[type="reset"]:hover,
+.botones button[type="button"]:hover{
+transition: 1111ms;
+background: none;
+}
+
+.bodyregister .cajaregister .formulario .inputbox[type="text"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="text"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="password"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="password"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="email"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="text"]:focus,
+.bodyregister .cajaregister .formulario .inputbox[type="text"]:focus{
+width: 280px;
+border-color:white;
+
+}
 
