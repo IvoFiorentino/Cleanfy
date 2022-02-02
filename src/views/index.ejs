@@ -7,26 +7,24 @@
       <h3 class="titulo">Basado en tu ultima visita o nuevos productos</h3>
       <section class="container">
         <!-- HACER UN FOR PARA CADA CARD -->
-      <div class="contenedorGeneral">
-        <div class="ver">
         <% productos.forEach(producto => { %>
-          <a href="products/productDetail/<%= producto.id %>">
+          <a href="products/productDetail/<%= producto.id %>" class="textoDeProducto">
+          <div class="ver">
           <img
-            class="imagenproducto"
+            class="imagenProducto"
             src="img/products/<%= producto.image %>"
             alt="alt"/>
               <div class="pdp">
                 <p class="precio">$<%= producto.price %></p>
                 <p class="producto"><%= producto.name %></p>
-                <p class="descuento"><%= producto.description %></p>
+                <!-- <p class="descuento"><%= producto.description %></p> -->
               </div>
-          </div>
-        </a>
-        <% }) %>
-      </div>
+            </div>
+            </a>
+            <% }) %>
       </section>
     </main>
     <%- include('./partials/footer.ejs') %>
-    <!-- <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script> -->
+    <script src="/docs/5.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"> </script>
   </body>
   </html>
