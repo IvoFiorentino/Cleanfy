@@ -83,7 +83,7 @@ body {
 }
  
  .navegador ul li a {
-    display: block ;
+    display: block;
     padding: 0.5rem 1rem;
     transition: all 0.2s linear;
     border-radius: 1.5px;
@@ -155,14 +155,12 @@ body {
     /* width: 55%; */
 }
 
-.pdp{
-    /* display: flex;
-    flex-direction: column; */
-    /* margin-bottom: 1px; */
-    display: flex;
-    flex-direction: column;
-    background-color: white;
+.ver:hover{
+    background-color: rgb(124, 207, 255);
     border: 1px solid gray;
+    animation:normal;
+    color:#4A91F7 ;
+    transition:all;
 }
 
 /* .section-html{
@@ -238,7 +236,8 @@ body {
   }
   
   .navegador ul li {
-      display: inline-block;
+      display: flex;
+      justify-content: space-between;
   }
    
    .navegador ul li a {
@@ -248,9 +247,15 @@ body {
       border-radius: 1.5px;
    }
     .navegador ul li a:hover{
-        background: #4763ED;
+        background-color: #4763ED;
         border-radius: 6px;
     }
+
+    /* .navegador {
+      width: 100vh;
+      border-bottom: 1px solid #4763ED;
+      box-shadow: 5px 0 10px rgba(0, 0, 0, 0);
+    } */
   
 
     /*<-------------------CARRITO MEDIA---------------------------------->*/
@@ -467,8 +472,8 @@ body {
 
 .boxlogin input[type="text"]:focus,
 .boxlogin input[type="password"]:focus{
-    width: 280px;
-    border-color: none;
+    width: 14rem;
+    border-color: black;
 }
 
 .boxlogin button[type="submit"],
@@ -543,7 +548,8 @@ font-size: 16;
 }
 
 .formulario{
-  margin-top: 150px;
+  margin-top: 10vh;
+  margin-left: 2vh;
 }
 
 .select-register{
@@ -635,12 +641,11 @@ font-size: 15;
 }
 
 .productPictureContainer {
+  display: flex;
   text-align: center;
-  /* border: red solid; */
   padding: 2%;
   margin: 2%;
   background-color: white;
-  height: 20vh;
 }
 
 .productPicture {
@@ -908,11 +913,10 @@ div.carrito-a1 p, div.carrito-a2 p, div.carrito-a3 p, div.carrito-a4 p {
 }
 
 .mainProductDetail {
+  display: flex;
+  flex-direction: column;
   padding: 80px 0px 0px 0px;
   text-align: center;
-  width: 100vw;
-  height: 80vw;
-  /* background-color: yellow; */
 }
 
 .productTittleContainer {
@@ -929,12 +933,11 @@ div.carrito-a1 p, div.carrito-a2 p, div.carrito-a3 p, div.carrito-a4 p {
 }
 
 .productPictureContainer {
+  display: flex;
+  flex-direction: row;
   text-align: center;
-  /* border: red solid; */
   padding: 2%;
   margin: 2%;
-  background-color: white;
-  height: 20vh;
 }
 
 .productPicture {

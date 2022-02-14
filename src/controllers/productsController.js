@@ -41,17 +41,22 @@ const productsController = {
       .catch((error) => res.send(error));
   },
 
+  // productsDetail:(req, res) => {
+  //   let productId = req.params.id;
+  //   let product = Products.findByPk(productId)
+  //   .then((product) => {
+  //       return res.render("productDetail", { product });
+  //   })
+  //   .catch(error => res.send(error))
+  // },
+
   productName: (req, res) => {
     let productId = req.params.id;
-    let promProduct = db.Product.findByPk(productId, {
-      include: ["product_categories"],
-    });
-    let promProduct_category = db.Product.findAll();
-    Promise.all([promProduct, promProduct_category])
-      .then(([Product, allProduct_category]) => {
-        return res.render("productDetail", { Product, allProduct_category,  });
-      })
-      .catch((error) => res.send(error));
+    db.Product.findByPk(productId)
+    .then(producto => {
+      res.render("productDetail", {producto})
+    })
+    .catch((error) => res.send(error));
   },
 
   editProduct: (req, res) => {
