@@ -6,7 +6,7 @@
 }
 
 .main{
-  padding-top: 5rem;
+  padding-top: 8rem;
 }
 
 .container {
@@ -30,7 +30,29 @@ header img {
 }
 
 .menuHeader li {
-  margin: 2px;
+  margin: 1rem;
+}
+
+.menuHeader li a:hover{
+  background-color: #4763ED;
+}
+
+.menuHeader > li {
+  float: left;
+}
+
+.menuHeader li ul {
+  display: none;
+  position: absolute;
+  min-width: 140px;
+}
+
+.menuHeader li:hover > ul {
+  display: block;
+}
+
+.listaHeader{
+  background-color:#4A91F7;
 }
 
 body {
@@ -87,10 +109,12 @@ body {
     padding: 0%;
     list-style: none;
 }
+
 .navegador ul li a:hover{
-      background: #4763ED;
-      border-radius: 6px;
-  }
+  background-color:#83b7ff;
+  border-radius: 2px;
+  padding: 1px;
+}
 
 .precio{
     font-size: 2vh;
@@ -227,16 +251,6 @@ body {
       color: white;
       text-decoration: none;
   }
-  
-  .navegador ul {
-      margin: 0%;
-      padding: 0%;
-      list-style: none;
-  }
-    .navegador ul li a:hover{
-        background-color: #4763ED;
-        border-radius: 6px;
-    }
 
     /* .navegador {
         display: flex;
@@ -245,6 +259,10 @@ body {
   
 
     /*<-------------------CARRITO MEDIA---------------------------------->*/
+    .carrito{
+      padding-top: 8rem;
+    }
+
     .carrito-productos-carro {
       display:flex;
       justify-content: space-between ;
@@ -605,14 +623,6 @@ font-size: 15;
   height: 100vh;
 }
 
-.mainProductDetail {
-  padding: 80px 0px 0px 0px;
-  text-align: center;
-  width: 100vw;
-  height: 80vw;
-  /* background-color: yellow; */
-}
-
 .productTittleContainer {
   text-align: left;
   /* border: red solid; */
@@ -623,15 +633,28 @@ font-size: 15;
 .productTittle{
   align-items: center;
   text-align: left;
-  font-size: 3vh;
+  font-size: 3rem;
 }
 
 .productPictureContainer {
   display: flex;
   text-align: center;
   padding: 2%;
+  margin: 1%;
+  background-color:#b3b3b3;
+  border: 1px solid black;
+}
+
+.productInfoContainer{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: 2%;
-  background-color: white;
+}
+
+.productPictureContainer a{
+  list-style: none;
+  text-decoration: none;
 }
 
 .productPicture {
@@ -695,6 +718,7 @@ font-size: 15;
   /* border: red solid; */
   padding: 2%;
   margin: 2%;
+  font-size: 2rem;
 }
 
 .questionContainer {
@@ -901,32 +925,6 @@ div.carrito-a1 p, div.carrito-a2 p, div.carrito-a3 p, div.carrito-a4 p {
   flex-direction: column;
   padding: 80px 0px 0px 0px;
   text-align: center;
-}
-
-.productTittleContainer {
-  text-align: left;
-  /* border: red solid; */
-  padding: 2%;
-  margin: 2%;
-}
-
-.productTittle{
-  align-items: center;
-  text-align: left;
-  font-size: 3vh;
-}
-
-.productPictureContainer {
-  display: flex;
-  flex-direction: row;
-  text-align: center;
-  padding: 2%;
-  margin: 2%;
-}
-
-.productPicture {
-  padding: 5%;
-  border-image: 5%;
 }
 
 .productPriceContainer {
@@ -1152,7 +1150,29 @@ background: none;
 .bodyregister .cajaregister .formulario .inputbox[type="text"]:focus{
 width: 280px;
 border-color:white;
+}
 
+.body-create-product {
+  justify-content: center;
+  align-items: center;
+}
+
+.boxCrearItem{
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background-color: #4A91F7;
+  align-items: center;
+  border-radius: 18%;
+  border: 1px solid silver;
+  height: 20rem;
+  width: 30%;
+}
+
+.formularioCreacion{
+  display: flex;
+  justify-content: center;
+  padding-top: 15rem;
 }
 
 

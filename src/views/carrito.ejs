@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs') %>
-    <body>
+    <body class="carrito">
         <!-- header -->
         <%- include('./partials/header.ejs') %> 
         <!-- main -->
@@ -34,7 +34,7 @@
                                  <h2>$<%= toThousand(finalPrice) %> </h2>
                                 <p><%= product.product_name %></p>
                             </article>
-                            <form action="/products/carrito/<%=product.id%>" method="POST">
+                            <form action="/carrito/add<%=producto.id%>" method="POST">
                                 <button type="submit" ><i class="fas fa-trash-alt"></i></button>
                             </form>
                         </div>

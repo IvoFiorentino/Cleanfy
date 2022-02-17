@@ -4,7 +4,8 @@
 <body>
   <%- include('./partials/header.ejs') %>
   <main class="body-create-product">
-    <form action="/products/create" method="POST" enctype="multipart/form-data" class="boxlogin">
+    <div class="formularioCreacion">
+    <form action="/products/create" method="POST" enctype="multipart/form-data" class="boxCrearItem">
       <h2 class="title">Agregar Producto</h2>
       <label for="name" class="">Nombre del producto:</label>
       <input type="text" id="name" name="name" placeholder="Nombre del producto" class="form-input" value="">
@@ -19,6 +20,7 @@
       <button type="submit">
         Agregar
       </button>
+    </div>
   </main>
 </body>
 </html>

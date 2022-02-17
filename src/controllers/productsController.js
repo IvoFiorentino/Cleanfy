@@ -4,34 +4,80 @@ const fs = require("fs");
 const { validationResult } = require("express-validator");
 //const products = JSON.parse(fs.readFileSync(productsFilePath, 'utf-8'));
 const db = require("../database/models");
+const models = require('../database/models/Product');
+const producto = models.product;
 
 const productsController = {
   productCart: (req, res) => res.render("carrito"),
-  
-  
-  productCarrito: (req, res) =>{
-    
-  },
+
+  cargarItemCarrito(req, res) {
+    var carrito = req.session.carrito;
+    var external = req.params.product_id;
+    producto.findOne({where: {product_id: external}, include: [{model: category, required: true}]})
+            .then(producto => {
+                if (producto) {
+                    let pos = CarritoController.verificar(carrito, external);
+                    if (pos == -1) {
+                        let datos = {
+                            id: vino.id,
+                            nombre: vino.nombre,
+                            cantidad: 1,
+                            precio: vino.precio,
+                            precio_total: vino.precio,                         
+                        };
+                        carrito.push(datos);
+                    } else {
+                        let data = carrito[pos];
+                        data.cantidad = data.cantidad + 1;
+                        data.precio_total = data.precio * data.cantidad;
+                        carrito[pos] = data;
+                    }
+                    req.session.carrito = carrito;
+                    console.log(req.session.carrito);
+                    res.status(200).json(req.session.carrito);
+                } else {
+                    res.status(500).json('No se ha podido añadir al carrito de compras');
+                }
+            }).catch(err => {
+        res.status(500).json(err);
+    });
+},
 
 
+quitarItem(req, res) {
+  let carrito = req.session.carrito;
+  let external = req.params.external_id;
+  let pos = productsController.verificar(carrito, external);
+  let data = carrito[pos];
+  if (data.cantidad > 1) {
+      data.cantidad = data.cantidad - 1;
+      data.precio_total = data.cantidad * data.precio;
+      carrito[pos] = data;
+      req.session.carrito = carrito;
+      res.status(200).json(req.session.carrito);
+  } else {
+      let aux = [];            
+      for(let i = 0; i < carrito.length; i++) {
+          let items = carrito[i];
+          if(items.external_id != external) {
+              aux.push(items);
+          }
+      }
+      req.session.carrito = aux;
+      res.status(200).json(req.session.carrito);
+  }
+},
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+verificar(lista, external) {
+  var pos = -1;
+  for (var i = 0; i < lista.length; i++) {
+      if (lista[i].external_id == external) {
+          pos = i;
+          break;
+      }
+  }
+  return pos;
+},
 
   productDetail: (req, res) => res.render('productDetail'),
 
