@@ -23,6 +23,16 @@ header img {
     border-radius: 3px;
 }
 
+.menuHeader{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menuHeader li {
+  margin: 2px;
+}
+
 body {
     background-image:url("../img/woman-cleaning-surface.jpg");
     background-repeat: no-repeat;
@@ -39,10 +49,6 @@ body {
     left: 0;
     top: 0;
     width: 100%;
-}
-
-.menuHeader ul li{
-  display: inline-block;
 }
 
 .logo {
@@ -81,23 +87,12 @@ body {
     padding: 0%;
     list-style: none;
 }
-
-.navegador ul li {
-    display: inline-block;
-}
- 
- .navegador ul li a {
-    display: block;
-    padding: 0.5rem 1rem;
-    transition: all 0.2s linear;
-    border-radius: 1.5px;
- }
-  .navegador ul li a:hover{
+.navegador ul li a:hover{
       background: #4763ED;
       border-radius: 6px;
   }
 
-  .precio{
+.precio{
     font-size: 2vh;
     color: green;
     margin-bottom: 0px;
@@ -238,18 +233,6 @@ body {
       padding: 0%;
       list-style: none;
   }
-  
-  .navegador ul li {
-      display: flex;
-      justify-content: space-between;
-  }
-   
-   .navegador ul li a {
-      display: block ;
-      padding: 0.5rem 1rem;
-      transition: all 0.2s linear;
-      border-radius: 1.5px;
-   }
     .navegador ul li a:hover{
         background-color: #4763ED;
         border-radius: 6px;
@@ -332,10 +315,7 @@ body {
     color: white;
     margin-bottom: 0px;
   }
-  .footer div ul li a{
-    color: white;
-  }
-  .datos { color: white;}
+  .datos { color:white;}
 
   .footer img {
     width: 10%;
@@ -781,8 +761,6 @@ div.carrito-detalle {
   flex-direction: column;
   justify-content: center;
   width: 70%;
-  
-  
 }
 
 .carrito-prods {

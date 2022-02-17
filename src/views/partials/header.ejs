@@ -8,10 +8,12 @@
         <a href="/products/productCreate">Vender</a>
       </div>
       <div class="buscador">
-        <input type="text" placeholder="Buscar productos y mas..." required>
+        <form action="/search" method="GET"></form>
+         <input type="text" placeholder="Buscar" aria-label="Buscar" name="Buscar">
+                <input type="submit" value="Buscar">
       </div>
-      <div class="menuHeader">
-       <ul>
+      <div>
+       <ul class="menuHeader">
         <li><a href="/products/productList">Categorias</a></li>
         <li><a href="#">Ofertas</a></li>
         <li><a href="#">Envios</a></li>
@@ -19,12 +21,29 @@
        </ul>
       </div>
       <ul class=botonesregistro>
-      <div>
-        <a href="/users/login" class="registro">Sing In<i class="fas fa-sign-in-alt"></i></a></li>
-      </div>
-      <div>
-        <a href="/users/register" class="registro">Register<i class="far fa-address-card"></i></a></li></a>
-      </div>
+        <% if (locals.isLogged) { %>
+          <div class="offcanvas-header  usuario">
+            <h5 class="offcanvas-title nombre-login" id="offcanvasNavbarLabel">
+              <%= locals.userLogged.email%>
+            </h5>
+            <li class="nav-item usuario">
+              <a class="nav-link active nav-acount-home  cerrarSesion" aria-current="page" href="/users/logout">Cerrar
+                sesión</a>
+            </li>
+            <li class="nav-item usuario">
+              <a class="nav-link active nav-acount-home  cerrarSesion" aria-current="page" href="/users/admin/user/list">Administrador</a>
+            </li>
+          </div>
+          <% } else { %>
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item">
+                  <a class="nav-link active nav-acount-home" aria-current="page" href="/users/register">Crear cuenta</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active nav-acount-home" aria-current="page" href="/users/login">Iniciar sesion</a>
+                </li>
+                <% } %>
       </ul>
     </div>
   </nav>
