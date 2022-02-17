@@ -7,6 +7,32 @@ const db = require("../database/models");
 
 const productsController = {
   productCart: (req, res) => res.render("carrito"),
+  
+  
+  productCarrito: (req, res) =>{
+    
+  },
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   productDetail: (req, res) => res.render('productDetail'),
 
   products: (req, res) => {
