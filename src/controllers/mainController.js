@@ -9,9 +9,7 @@ const mainController = {
   index : (req, res) =>{
     db.Product.findAll()
     .then((productos) => {
-      console.log(productos)
       res.render("index", {productos})}
-      // res.send(productos)}
     )
     .catch((err) => {
       res.send(err)
@@ -19,4 +17,8 @@ const mainController = {
 }
 }
 
+
+
+
 module.exports = mainController;
+

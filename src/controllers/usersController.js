@@ -9,7 +9,7 @@ const db = require("../database/models");
 const usersController = {
   login: (req, res) => res.render("login"),
 
-  processLogin: function (req, res) {
+    processLogin: function (req, res) {
     let promUser = db.User.findAll({
       where: {email: req.body.email}})
       .then(result=>{
